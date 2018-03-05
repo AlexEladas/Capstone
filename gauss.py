@@ -1,7 +1,7 @@
 import csv
 import math
 import sys
-import pyttsx3
+#import pyttsx3
 
 pri = 0.2
 test = sys.argv[1:]
@@ -33,8 +33,8 @@ for i in range(len(mean_list)):
     print("Class "+letters[i] +": " + str(score))
     finald[score] = letters[i]
     final.append(score)
-engine = pyttsx3.init()
+#engine = pyttsx3.init()
 #engine.say(finald[max(final)])
-engine.say("Hungry")
-engine.say("Water")
-engine.runAndWait()
+#engine.say("Hungry")
+#engine.say("Water")
+#engine.runAndWait()
