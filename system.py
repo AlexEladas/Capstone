@@ -48,16 +48,16 @@ address = 0x68  # via i2cdetect
 # Activate to be able to address the module
 bus.write_byte_data(address, power_mgmt_1, 0)
 
-Gx = read_word_2c(0x43)/131
-Gy = read_word_2c(0x45)/131
-Gz = read_word_2c(0x47)/131
+#Gx = read_word_2c(0x43)/131
+#Gy = read_word_2c(0x45)/131
+#Gz = read_word_2c(0x47)/131
 
-Ax = read_word_2c(0x3b)/16384.0
-Ay = read_word_2c(0x3d)/16384.0
-Az = read_word_2c(0x3f)/16384.0
+#Ax = read_word_2c(0x3b)/16384.0
+#Ay = read_word_2c(0x3d)/16384.0
+#Az = read_word_2c(0x3f)/16384.0
 
-Atotal = math.sqrt((Ax^2 + Ay^2 + Az^2))
-Gtotal = math.sqrt((Gx^2 + Gy^2 + Gz^2))
+#Atotal = math.sqrt((Ax^2 + Ay^2 + Az^2))
+#Gtotal = math.sqrt((Gx^2 + Gy^2 + Gz^2))
 
 CLK=12
 MISO=23
@@ -70,22 +70,22 @@ print("-" * 57)
 
 while True:
     values = [0]*8
-    for i in range(8):
+    for i in range(6):
         values[i] = mcp.read_adc(i)
         if i > 4:
             Gx = read_word_2c(0x43) / 131
             Gy = read_word_2c(0x45) / 131
             Gz = read_word_2c(0x47) / 131
 
-            Ax = read_word_2c(0x3b) / 16384.0
-            Ay = read_word_2c(0x3d) / 16384.0
-            Az = read_word_2c(0x3f) / 16384.0
+            Ax = read_word_2c(0x3b) 
+            Ay = read_word_2c(0x3d) 
+            Az = read_word_2c(0x3f) 
 
-            Atotal = math.sqrt((Ax ^ 2 + Ay ^ 2 + Az ^ 2))
-            Gtotal = math.sqrt((Gx ^ 2 + Gy ^ 2 + Gz ^ 2))
+            Atotal = math.sqrt((Ax ** 2 + Ay ** 2 + Az ** 2))
+            Gtotal = math.sqrt((Gx ** 2 + Gy ** 2 + Gz ** 2))
 
             values[i] = Atotal
             values[i + 1] = Gtotal
-            break
+            
     print("|{0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} | {7:>4} |".format(*values))
     time.sleep(0.5)
