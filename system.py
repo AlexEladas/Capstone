@@ -3,7 +3,7 @@ import math
 import time
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
-
+import gauss
 # Register
 power_mgmt_1 = 0x6b
 power_mgmt_2 = 0x6c
@@ -69,7 +69,7 @@ print("| {0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} | {7:>4} |
 print("-" * 57)
 
 while True:
-    values = [0]*8
+    values = [0]*7
     for i in range(6):
         values[i] = mcp.read_adc(i)
         if i > 4:
@@ -86,6 +86,6 @@ while True:
 
             values[i] = Atotal
             values[i + 1] = Gtotal
-            
-    print("|{0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} | {7:>4} |".format(*values))
+            gauss.main(values)
+    print("|{0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} |".format(*values))
     time.sleep(0.5)

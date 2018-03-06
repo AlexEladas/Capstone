@@ -27,7 +27,7 @@ def main(arg):
     print (variance_list)
     final = []
     finald = {}
-    letters = ['a','b','c','d','e','water','help']
+    letters = ['ay','b','c','d','e','water','help']
     for i in range(len(mean_list)):
         score = 1.0
         for mean,variance, value in zip(mean_list[i],variance_list[i],test):
@@ -38,9 +38,13 @@ def main(arg):
         final.append(score)
     #engine = pyttsx3.init()
     #engine.say(finald[max(final)])
-    os.system("pico2wave -w lookdave.wav {b} && aplay lookdave.wav".format(b= finald[max(final)]))
-    os.system("rm lookdave.wav")
-    #engine.runAndWait()
+    if (max(final) * 10**17) < (10**(-20)):
+        return 0
+    else:
+        os.system("pico2wave -w lookdave.wav {b} && aplay lookdave.wav".format(b= finald[max(final)]))
+        os.system("rm lookdave.wav")
+        return 0
+        #engine.runAndWait()
 
 if __name__ == "__main__":
     main(sys.argv[1:])
