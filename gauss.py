@@ -1,10 +1,10 @@
 import csv
 import math
 import sys
-import pyttsx3
-
+#import pyttsx3
+import os
 pri = 1.0/7.0
-test = sys.argv[1]
+test = sys.argv[1:]
 print (pri)
 
 def gauss(mean, variance, feature):
@@ -34,6 +34,8 @@ for i in range(len(mean_list)):
     print("Class "+letters[i] +": " + str(score))
     finald[score] = letters[i]
     final.append(score)
-engine = pyttsx3.init()
-engine.say(finald[max(final)])
-engine.runAndWait()
+#engine = pyttsx3.init()
+#engine.say(finald[max(final)])
+os.system("pico2wave -w lookdave.wav {b} && aplay lookdave.wav".format(b= finald[max(final)]))
+os.system("rm lookdave.wav")
+#engine.runAndWait()
