@@ -3,6 +3,7 @@ import math
 import sys
 #import pyttsx3
 import os
+import subprocess
 
 def main(arg):
     pri = 1.0/7.0
@@ -38,13 +39,13 @@ def main(arg):
         final.append(score)
     #engine = pyttsx3.init()
     #engine.say(finald[max(final)])
-    if (max(final) * 10**17) < (10**(-20)):
+    if (max(final) * 10**17) < (-10**-(20)):
         return 0
     else:
-        os.system("pico2wave -w lookdave.wav {b} && aplay lookdave.wav".format(b= finald[max(final)]))
+        cmd = """pico2wave -w output.wav "<volume level = '100'> {a}" && aplay output.wav""".format( a= finald[max(final)])
+        subprocess.call(cmd, shell=True)
         os.system("rm lookdave.wav")
         return 0
-        #engine.runAndWait()
 
 if __name__ == "__main__":
     main(sys.argv[1:])
