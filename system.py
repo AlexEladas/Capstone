@@ -86,6 +86,6 @@ while True:
 
             values[i] = Atotal
             values[i + 1] = Gtotal
-            gauss.main(values)
+            #gauss.main(values)
     print("|{0:>4} | {1:>4} | {2:>4} | {3:>4} | {4:>4} | {5:>4} | {6:>4} |".format(*values))
-    time.sleep(0.5)
+    time.sleep(0.2)
