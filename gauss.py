@@ -40,15 +40,19 @@ def main(arg):
     #engine = pyttsx3.init()
     #engine.say(finald[max(final)])
     if finald[max(final)] == 'c' or finald[max(final)] == 'thank you':
-        if (max(final) * 10 ** 17) < (-10 ** -(3)):
+        if finald[max(final)] =='c' and (max(final) * 10 ** 17)< (2 ** -(2)):
             return 0
-
-    if (max(final) * 10**17) < (-10**-(20)):
+        if (max(final) * 10 ** 17) < (5 ** -(3)):
+            return 0
+    if finald[max(final)] == 'hungry':
+        if (max(final) * 10 ** 17) < (7 ** -(3)):
+            return 0
+    if (max(final) * 10**17) < (10**-(10)):
         return 0
     else:
         cmd = """pico2wave -w output.wav "<volume level = '100'> {a}" && aplay output.wav""".format( a= finald[max(final)])
         subprocess.call(cmd, shell=True)
-        os.system("rm lookdave.wav")
+        os.system("rm output.wav")
         return 0
 
 if __name__ == "__main__":
