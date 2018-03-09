@@ -28,7 +28,7 @@ def main(arg):
     print (variance_list)
     final = []
     finald = {}
-    letters = ['ay','b','c','d','e','water','help']
+    letters = ['ay','b','c','d','e','water','help','f','g','h','i','j','bathroom','hungry','thank you']
     for i in range(len(mean_list)):
         score = 1.0
         for mean,variance, value in zip(mean_list[i],variance_list[i],test):
