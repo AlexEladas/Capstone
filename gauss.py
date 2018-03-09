@@ -39,6 +39,10 @@ def main(arg):
         final.append(score)
     #engine = pyttsx3.init()
     #engine.say(finald[max(final)])
+    if finald[max(final)] == 'c' or finald[max(final)] == 'thank you':
+        if (max(final) * 10 ** 17) < (-10 ** -(3)):
+            return 0
+
     if (max(final) * 10**17) < (-10**-(20)):
         return 0
     else:
